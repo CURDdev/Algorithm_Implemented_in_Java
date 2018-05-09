@@ -2,10 +2,10 @@ package Stack_Queue;
 import java.util.Stack;
 
 //实现一个具有 getMin 功能的栈， 即找到栈中的最小值，在时间复杂度为 O(1) 的情况下
-public class MinStack {
+public class MinStack1 {
     private Stack<Integer> stackData;
     private Stack<Integer> stackMin;
-    public MinStack(){
+    public MinStack1(){
         this.stackData = new Stack<Integer>();
         this.stackMin = new Stack<Integer>();
     }
@@ -19,7 +19,7 @@ public class MinStack {
         if(this.stackMin.isEmpty()){
             this.stackMin.push(newNum);
         }
-        if(this.getMin() > newNum){
+        if(this.getMin() >= newNum){
             this.stackMin.push(newNum);
         }
         this.stackData.push(newNum);
@@ -35,18 +35,18 @@ public class MinStack {
         return value;
     }
     public static void main(String[] args) {
-        MinStack minStack = new MinStack();
-        minStack.push(5);
-        System.out.println(minStack.getMin());
-        minStack.push(4);
-        System.out.println(minStack.getMin());
-        minStack.push(8);
-        System.out.println(minStack.getMin());
-        minStack.push(3);
-        System.out.println(minStack.getMin());
-        minStack.pop();
-        System.out.println(minStack.getMin());
-        minStack.pop();
-        System.out.println(minStack.getMin());
+        MinStack1 minStack1 = new MinStack1();
+        minStack1.push(5);
+        System.out.println(minStack1.getMin());
+        minStack1.push(4);
+        System.out.println(minStack1.getMin());
+        minStack1.push(8);
+        System.out.println(minStack1.getMin());
+        minStack1.push(3);
+        System.out.println(minStack1.getMin());
+        minStack1.pop();
+        System.out.println(minStack1.getMin());
+        minStack1.pop();
+        System.out.println(minStack1.getMin());
     }
 }
