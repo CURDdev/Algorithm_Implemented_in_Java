@@ -20,6 +20,7 @@ public class MinStack1 {
         if(this.stackMin.isEmpty()){
             this.stackMin.push(newNum);
         }
+        //如果新来的数值小于或者等于 min 栈栈顶的值，则将该数压入 min 栈
         if(this.getMin() >= newNum){
             this.stackMin.push(newNum);
         }
