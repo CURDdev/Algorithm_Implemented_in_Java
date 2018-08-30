@@ -6,8 +6,8 @@ public class MinStack1 {
     private Stack<Integer> stackData;
     private Stack<Integer> stackMin;
     public MinStack1(){
-        this.stackData = new Stack<Integer>();
-        this.stackMin = new Stack<Integer>();
+        this.stackData = new Stack<>();
+        this.stackMin = new Stack<>();
     }
     public Integer getMin(){
         if(this.stackMin.isEmpty()){
@@ -16,6 +16,7 @@ public class MinStack1 {
         return this.stackMin.peek();//返回 stackMin 的栈顶值
     }
     public void push(int newNum){
+        //min 栈初始化
         if(this.stackMin.isEmpty()){
             this.stackMin.push(newNum);
         }
@@ -25,10 +26,12 @@ public class MinStack1 {
         this.stackData.push(newNum);
     }
     public int pop(){
+        //别忘了异常判断
         if(this.stackData.isEmpty()){
             throw new RuntimeException("Stack is Empty");
         }
         int value = this.stackData.pop();
+        //如果弹出的数据比 min 大，则 min 栈不需要弹出;如果弹出的数据等于 min，则 min 弹出栈顶元素;弹出的数据不可能小于 min 的栈顶元素
         if(value == this.getMin()){
             this.stackMin.pop();
         }
