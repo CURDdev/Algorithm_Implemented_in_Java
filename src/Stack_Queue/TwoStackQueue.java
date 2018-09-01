@@ -41,4 +41,13 @@ public class TwoStackQueue {
         }
         return stackPop.peek();
     }
+    public static void main(String[] args){
+        TwoStackQueue twoStackQueue = new TwoStackQueue();
+        twoStackQueue.add(1);
+        twoStackQueue.add(2);
+        System.out.println(twoStackQueue.poll());
+        System.out.println(twoStackQueue.peek());
+        twoStackQueue.add(1);
+        twoStackQueue.add(3);
+    }
 }
